@@ -5,3 +5,5 @@ export * from "./CategoryPortal/CategoryPortal";
 export * from "./Container/Container";
 export * from "./AppLink/AppLink";
 export * from "./ElementCard/ElementCard";
+export * from "./Input/Input";
+export * from "./Button/Button";
