@@ -1,8 +1,6 @@
 import { useLocation, useParams, useNavigate } from "react-router-dom";
-import { Container, ElementRow } from "@/shared/ui";
+import { Button, Container, ElementRow } from "@/shared/ui";
 import { categoriesMap, CategoryName } from "@/shared";
-
-import styles from "./CategoryPage.module.css"
 
 export const CategoryPage = () => {
   const { categoryName } = useParams<{ categoryName: string }>();
@@ -35,9 +33,9 @@ export const CategoryPage = () => {
   return (
     <div>
       <h1>{categoryTitle}</h1>
-      <button onClick={toggleSort} className={styles.buttonSort}>
+      <Button onClick={toggleSort} variant="secondary">
         Сортировать по дате {sortOrder === "asc" ? "⬇" : "⬆"}
-      </button>
+      </Button>
       <Container gap="0.125rem">
         {sortedData.map((item) => (
           <ElementRow key={item.id} item={item} />
