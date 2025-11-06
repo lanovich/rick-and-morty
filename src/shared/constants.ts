@@ -6,6 +6,7 @@ import { Character, Episode, LocationType } from "@/shared/types";
 
 export const ROUTES = {
   home: "/",
+  login: "/login",
   locations: "/locations",
   episodes: "/episodes",
   characters: "/characters",

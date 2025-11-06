@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { categoriesMap, Container, ElementCard } from "@/shared";
+import { Button, categoriesMap, Container, ElementCard } from "@/shared";
 import styles from "./ElementPage.module.css";
 
 export const ElementPage = () => {
@@ -24,9 +24,9 @@ export const ElementPage = () => {
 
   return (
     <Container className={styles.wrapper}>
-      <button className={styles.backButton} onClick={() => navigate(-1)}>
+      <Button onClick={() => navigate(-1)}>
         Назад
-      </button>
+      </Button>
       <ElementCard item={item} />
     </Container>
   );
