@@ -2,7 +2,7 @@ import { useLocation, useParams, useNavigate } from "react-router-dom";
 import { Button, Container, ElementRow } from "@/shared/ui";
 import { categoriesMap, CategoryName } from "@/shared";
 
-export const CategoryPage = () => {
+const CategoryPage = () => {
   const { categoryName } = useParams<{ categoryName: string }>();
   const location = useLocation();
   const navigate = useNavigate();
@@ -44,3 +44,5 @@ export const CategoryPage = () => {
     </div>
   );
 };
+
+export default CategoryPage;

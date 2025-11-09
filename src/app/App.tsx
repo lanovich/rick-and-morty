@@ -3,7 +3,12 @@ import "./App.css";
 import { Layout } from "./layout";
 import { ROUTES } from "@/shared";
 import { PrivateRoute } from "./PrivateRoute";
-import { MainPage, CategoryPage, ElementPage, LoginPage } from "@/pages";
+import { lazy } from "react";
+
+const MainPage = lazy(() => import("@/pages/MainPage/MainPage"));
+const CategoryPage = lazy(() => import("@/pages/CategoryPage/CategoryPage"));
+const ElementPage = lazy(() => import("@/pages/ElementPage/ElementPage"));
+const LoginPage = lazy(() => import("@/pages/LoginPage/LoginPage"));
 
 function App() {
   return (

@@ -2,7 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { Button, categoriesMap, Container, ElementCard } from "@/shared";
 import styles from "./ElementPage.module.css";
 
-export const ElementPage = () => {
+const ElementPage = () => {
   const { categoryName, elementId } = useParams<{
     categoryName: string;
     elementId: string;
@@ -24,10 +24,10 @@ export const ElementPage = () => {
 
   return (
     <Container className={styles.wrapper}>
-      <Button onClick={() => navigate(-1)}>
-        Назад
-      </Button>
+      <Button onClick={() => navigate(-1)}>Назад</Button>
       <ElementCard item={item} />
     </Container>
   );
 };
+
+export default ElementPage;

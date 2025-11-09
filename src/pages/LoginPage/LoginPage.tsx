@@ -5,7 +5,7 @@ import styles from "./LoginPage.module.css";
 import { Button, Container } from "@/shared";
 import { useLocation, useNavigate } from "react-router-dom";
 
-export const LoginPage = () => {
+const LoginPage = () => {
   const { login } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
@@ -37,3 +37,5 @@ export const LoginPage = () => {
     </Container>
   );
 };
+
+export default LoginPage;
