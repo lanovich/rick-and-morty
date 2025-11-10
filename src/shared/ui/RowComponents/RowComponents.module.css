@@ -1,0 +1,121 @@
+.row {
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #3f5443;
+  border-radius: 1rem;
+  text-decoration: none;
+  color: inherit;
+  background: #1f412d3f;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.row:hover {
+  background: #223e23;
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 0.5rem;
+  object-fit: cover;
+}
+
+.info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.mainDetails {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+.basicInfo {
+  min-width: 500px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.basicInfo p {
+  margin: 0;
+}
+
+.name {
+  font-weight: bold;
+}
+
+.attributes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  text-align: left;
+}
+
+.attribute {
+  margin: 0;
+}
+
+.linksLabel {
+  text-align: left;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 2px;
+}
+
+.locationInfo {
+  text-align: start;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.episodes {
+  display: flex;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+  margin-top: 0.25rem;
+}
+
+.episodeSquare {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background-color: #eee;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  text-decoration: none;
+  color: #333;
+  transition: background-color 0.2s;
+}
+
+.episodeSquare:hover {
+  background-color: #159763;
+  color: white;
+}
+
+.moreEpisodesButton {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  border: none;
+  background-color: #159763;
+  font-size: 0.75rem;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.moreEpisodesButton:hover {
+  background-color: #ffffff;
+  color: black;
+}
