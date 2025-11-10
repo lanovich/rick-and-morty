@@ -3,7 +3,7 @@ import { useState, useMemo } from "react";
 import { List } from "@/shared";
 import { FilterSortControls } from "@/widgets";
 import { LocationRow } from "@/entities/location/ui";
-import { LocationType } from "@/shared/types";
+import { LocationType } from "@/entities/location/model";
 import styles from "./LocationsPage.module.css";
 
 const LocationsPage = () => {

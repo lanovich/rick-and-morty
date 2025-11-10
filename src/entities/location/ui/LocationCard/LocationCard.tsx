@@ -1,4 +1,4 @@
-import { LocationType } from "@/shared/types";
+import { LocationType } from "@/entities/location/model";
 import { LinksGrid } from "@/shared/ui";
 import { ROUTES } from "@/shared/constants";
 import styles from "./LocationCard.module.css";

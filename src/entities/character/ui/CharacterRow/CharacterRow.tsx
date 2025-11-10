@@ -1,8 +1,8 @@
-import { Character } from "@/shared/types";
 import { Avatar, Attributes, LinksGrid, RowWrapper } from "@/shared";
 import styles from "./CharacterRow.module.css";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "@/shared/constants";
+import { Character } from "@/entities/character/model";
 
 export const CharacterRow = ({ character }: { character: Character }) => {
   const navigate = useNavigate();

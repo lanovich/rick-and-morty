@@ -1,4 +1,4 @@
-import { Episode } from "@/shared/types";
+import { Episode } from "@/entities/episode/model";
 import { LinksGrid } from "@/shared/ui";
 import { ROUTES } from "@/shared/constants";
 import styles from "./EpisodeCard.module.css";

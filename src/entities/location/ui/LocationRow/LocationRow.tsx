@@ -1,4 +1,4 @@
-import { LocationType } from "@/shared/types";
+import { LocationType } from "@/entities/location/model";
 import { Attributes, LinksGrid, RowWrapper } from "@/shared";
 import styles from "./LocationRow.module.css";
 import { useNavigate } from "react-router-dom";

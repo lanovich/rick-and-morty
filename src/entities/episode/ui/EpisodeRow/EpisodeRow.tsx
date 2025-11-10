@@ -1,4 +1,4 @@
-import { Episode } from "@/shared/types";
+import { Episode } from "@/entities/episode/model";
 import { Attributes, LinksGrid, RowWrapper } from "@/shared";
 import styles from "./EpisodeRow.module.css";
 import { useNavigate } from "react-router-dom";

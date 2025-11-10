@@ -1,7 +1,7 @@
-import { Character } from "@/shared/types";
 import { LinksGrid } from "@/shared/ui";
 import { ROUTES } from "@/shared/constants";
 import styles from "./CharacterCard.module.css";
+import { Character } from "@/entities/character/model";
 
 interface Props {
   item: Character;

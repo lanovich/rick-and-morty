@@ -1,10 +1,11 @@
 import { useRickAndMortyData } from "@/shared/lib";
 import { useState } from "react";
-import { Episode, List } from "@/shared";
+import { List } from "@/shared";
 import { useSortByDate } from "@/shared/lib";
 import styles from "./EpsiodesPage.module.css";
 import { FilterSortControls } from "@/widgets";
 import { EpisodeRow } from "@/entities/episode/ui";
+import { Episode } from "@/entities/episode/model";
 
 const EpisodesPage = () => {
   const [page, setPageNumber] = useState(1);
