@@ -1,14 +1,18 @@
 import fs from "fs";
 import path from "path";
 
-const componentName = process.argv[2];
+const args = process.argv.slice(2);
+
+const componentName = args[0];
+const targetFolder = args[1] || "shared/ui";
+const isDefaultExport = args.includes("--default");
 
 if (!componentName) {
   console.error("❌ Укажи имя компонента!");
   process.exit(1);
 }
 
-const basePath = path.resolve("src/shared/ui", componentName);
+const basePath = path.resolve(`src/${targetFolder}`, componentName);
 const componentFile = path.join(basePath, `${componentName}.tsx`);
 const styleFile = path.join(basePath, `${componentName}.module.css`);
 
@@ -17,23 +21,44 @@ if (fs.existsSync(basePath)) {
   process.exit(1);
 }
 
-fs.mkdirSync(basePath);
+fs.mkdirSync(basePath, { recursive: true });
 
-fs.writeFileSync(
-  componentFile,
-  `import styles from './${componentName}.module.css';
+const componentCode = isDefaultExport
+  ? `import styles from './${componentName}.module.css';
+
+interface ${componentName}Props {}
+
+const ${componentName} = ({}: ${componentName}Props) => {
+  return (
+    <div className={styles.${componentName.toLowerCase()}}>
+      ${componentName} component
+    </div>
+  );
+};
+
+export default ${componentName};
+`
+  : `import styles from './${componentName}.module.css';
 
 interface ${componentName}Props {}
 
 export const ${componentName} = ({}: ${componentName}Props) => {
-  return <div className={styles.${componentName.toLowerCase()}}>Hello ${componentName}</div>;
+  return (
+    <div className={styles.${componentName.toLowerCase()}}>
+      ${componentName} component
+    </div>
+  );
 };
-`
-);
+`;
+
+fs.writeFileSync(componentFile, componentCode);
 
 fs.writeFileSync(
   styleFile,
-  `.${componentName.toLowerCase()} {\n  /* styles */\n}\n`
+  `.${componentName.toLowerCase()} {\n  /* styles for ${componentName} */\n}\n`
 );
 
-console.log(`✅ Компонент ${componentName} создан по пути: ${basePath}`);
+console.log(`✅ Компонент ${componentName} создан:
+📁 Папка: ${basePath}
+📄 Экспорт: ${isDefaultExport ? "default" : "named"}
+`);
