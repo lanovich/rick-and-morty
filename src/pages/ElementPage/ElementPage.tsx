@@ -1,6 +1,10 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { Button, categoriesMap, Container, ElementCard } from "@/shared";
+import { Button, Container, Loading } from "@/shared";
+import { useRickAndMortyItem } from "@/shared/lib";
 import styles from "./ElementPage.module.css";
+import { LocationCard } from "@/entities/location/ui";
+import { CharacterCard } from "@/entities/character/ui";
+import { EpisodeCard } from "@/entities/episode/ui";
 
 const ElementPage = () => {
   const { categoryName, elementId } = useParams<{
@@ -9,23 +13,37 @@ const ElementPage = () => {
   }>();
   const navigate = useNavigate();
 
-  let item;
-  if (categoryName === "characters") {
-    item = categoriesMap.characters.data.find(
-      (c) => c.id === Number(elementId)
-    );
-  } else if (categoryName === "locations") {
-    item = categoriesMap.locations.data.find((l) => l.id === Number(elementId));
-  } else if (categoryName === "episodes") {
-    item = categoriesMap.episodes.data.find((e) => e.id === Number(elementId));
-  }
+  const category =
+    categoryName === "characters"
+      ? "character"
+      : categoryName === "locations"
+      ? "location"
+      : categoryName === "episodes"
+      ? "episode"
+      : undefined;
 
+  const { item, isLoading, isError, errorMessage } = useRickAndMortyItem<any>(
+    category,
+    elementId
+  );
+
+  if (isLoading)
+    return (
+      <div className={styles.loading}>
+        <Loading />
+      </div>
+    );
+  if (isError)
+    return <div>{errorMessage || "Ошибка при загрузке элемента"}</div>;
   if (!item) return <div>Элемент не найден</div>;
 
   return (
     <Container className={styles.wrapper}>
       <Button onClick={() => navigate(-1)}>Назад</Button>
-      <ElementCard item={item} />
+
+      {category === "character" && <CharacterCard item={item} />}
+      {category === "location" && <LocationCard item={item} />}
+      {category === "episode" && <EpisodeCard item={item} />}
     </Container>
   );
 };

@@ -1,7 +1,7 @@
 import { Header } from "@/widgets";
 import { Outlet } from "react-router-dom";
 import { Suspense } from "react";
-import { Loading } from "@/shared";
+import { Loading, ErrorBoundary } from "@/shared";
 import styles from "./layout.module.css";
 
 export const Layout = () => {
@@ -9,15 +9,17 @@ export const Layout = () => {
     <div>
       <Header />
       <main>
-        <Suspense
-          fallback={
-            <div className={styles.loadingLayout}>
-              <Loading />
-            </div>
-          }
-        >
-          <Outlet />
-        </Suspense>
+        <ErrorBoundary>
+          <Suspense
+            fallback={
+              <div className={styles.loadingLayout}>
+                <Loading />
+              </div>
+            }
+          >
+            <Outlet />
+          </Suspense>
+        </ErrorBoundary>
       </main>
     </div>
   );
