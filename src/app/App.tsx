@@ -3,7 +3,15 @@ import "./App.css";
 import { Layout } from "./layout";
 import { ROUTES } from "@/shared";
 import { PrivateRoute } from "./PrivateRoute";
-import { MainPage, CategoryPage, ElementPage, LoginPage } from "@/pages";
+import { lazy } from "react";
+const MainPage = lazy(() => import("@/pages/MainPage/MainPage"));
+const EpisodesPage = lazy(() => import("@/pages/EpsiodesPage/EpsiodesPage"));
+const LocationsPage = lazy(() => import("@/pages/LocationsPage/LocationsPage"));
+const CharactersPage = lazy(
+  () => import("@/pages/CharactersPage/CharactersPage")
+);
+const ElementPage = lazy(() => import("@/pages/ElementPage/ElementPage"));
+const LoginPage = lazy(() => import("@/pages/LoginPage/LoginPage"));
 
 function App() {
   return (
@@ -12,10 +20,28 @@ function App() {
         <Route index element={<MainPage />} />
 
         <Route
-          path=":categoryName"
+          path={ROUTES.episodes}
           element={
             <PrivateRoute>
-              <CategoryPage />
+              <EpisodesPage />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path={ROUTES.locations}
+          element={
+            <PrivateRoute>
+              <LocationsPage />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path={ROUTES.characters}
+          element={
+            <PrivateRoute>
+              <CharactersPage />
             </PrivateRoute>
           }
         />

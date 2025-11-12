@@ -1,7 +1,6 @@
 import { categoriesMap, CategoryPortal, Container } from "@/shared";
 import { Link } from "react-router-dom";
-
-export const MainPage = () => {
+const MainPage = () => {
   return (
     <div>
       <h1>Главная</h1>
@@ -17,3 +16,5 @@ export const MainPage = () => {
     </div>
   );
 };
+
+export default MainPage;

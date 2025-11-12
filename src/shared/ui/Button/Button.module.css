@@ -8,6 +8,7 @@
   cursor: pointer;
   font-weight: 600;
   transition: background 0.2s;
+  text-wrap: nowrap;
 }
 
 .button:hover {
@@ -15,10 +16,10 @@
 }
 
 .secondary {
-  background-color: #1d4ed8;
+  background-color: #487c5b;
   color: #f0f9ff;
 }
 
 .secondary:hover {
-  background-color: #1e40af;
+  background-color: #30533d;
 }
