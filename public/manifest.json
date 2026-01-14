@@ -12,7 +12,7 @@
     {
       "icons": [
         {
-          "src": "windows11/SmallTile.scale-100.png",
+          "src": "/icons/windows11/SmallTile.scale-100.png",
           "sizes": "71x71"
         },
         {
@@ -41,7 +41,8 @@
         },
         {
           "src": "windows11/Square150x150Logo.scale-150.png",
-          "sizes": "225x225"
+          "sizes": "225x225",
+          "purpose": "any maskable"
         },
         {
           "src": "windows11/Square150x150Logo.scale-200.png",
